@@ -18,8 +18,7 @@ def fetch_data(website_name):
         if(website_name in final_values):
             position_of_website_name = final_values.index(website_name)
             passwords =  final_values[position_of_website_name+1]
-            # username = input("Enter the username: ")
-            username = 'aryan'
+            username = input("Enter the username: ")
             if username in passwords:
                 position_of_username = passwords.index(username)
                 return passwords[position_of_username+1],position_of_username,username
