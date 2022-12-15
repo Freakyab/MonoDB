@@ -4,14 +4,6 @@ class client_name:
     Db = client['PassDb']
     collection = Db['Pass']
 
-# def check(data,data2):
-#     if len(data) == 0:
-#         print("Invalid")
-#     elif len(data2)== 0:
-#         print('Invalid')
-#     else:
-#         return True
-
 
 # to fetch particular data
 
