@@ -2,3 +2,5 @@ encrypt.py
 password.py
 #to ignore .env file
 .env
+members
+Project_web
