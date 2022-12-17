@@ -1,7 +1,10 @@
 import pymongo
 
+from decouple import config
+
 class client_name:
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+   
+    client = pymongo.MongoClient(f"mongodb+srv://{config('client')}@cluster0.cqjgwxp.mongodb.net/?retryWrites=true&w=majority")
     Db = client['PassDb']
     collection = Db['Pass']
 
@@ -121,42 +124,35 @@ def insert_data_inside_website(website_name):
 
 # main code
 
-# done = True
-# while done == True:
-#     main_key = input("Enter the key: ")
-#     if main_key == '0112':
-#         action = input("1.Insert_data\n2.Fetch_data\n3.quit\nEnter: ")
-#         if action == 1:
-#             insert_data()
-#         elif action == 2:  
-#             website_name = input("Enter the name of website: ")
-#             result,position_of_username,username = fetch_data(website_name)
-#             if result == False:
-#                 print("Invalid")
-#             else:
-#                 done1 = True
-#                 while done1 == True:
-#                     action = int(input("Enter the action you want to perform:\n1.change_password\n2.delete_data\n3.print_password\n4.print_db\n5.Insert_data\nEnter: "))
-#                     if action == 1:
-#                         change_password(result,position_of_username,username)
-#                     elif action == 2:
-#                         delete_data(website_name,result, position_of_username, username)
-#                         print_db()
-#                     elif action == 3:
-#                         print_password(result, position_of_username, username)
-#                     elif action == 4:
-#                         print_db()
-#                     elif action == 5:
-#                         insert_data_inside_website(website_name)
-#                     elif action == 6:
-#                         done1 = False
-#                     else:
-#                         print("Invalid")
-#         elif action == 3:
-#             done = False
-#         else:
-#             print("Invalid")
-#     elif main_key == 'n':
-#         done = False
-#     else:
-#         print("Invalid Password")
+main_key = input("Enter the key: ")
+if main_key == '0112':
+    action = int(input("1.Insert_data\n2.Fetch_data\n3.quit\nEnter: "))
+    if action == 1:
+        insert_data()
+    elif action == 2:  
+        website_name = input("Enter the name of website: ")
+        result,position_of_username,username = fetch_data(website_name)
+        if result == False:
+            print("Invalid")
+        else:
+               
+            action1 = int(input("Enter the action you want to perform:\n1.change_password\n2.delete_data\n3.print_password\n4.print_db\n5.Insert_data\nEnter: "))
+            if action1 == 1:
+                change_password(result,position_of_username,username)
+            elif action1 == 2:
+                delete_data(website_name,result, position_of_username, username)
+                print_db()
+            elif action1 == 3:
+                print_password(result, position_of_username, username)
+            elif action1 == 4:
+                print_db()
+            elif action1 == 5:
+                insert_data_inside_website(website_name)
+            else:
+                 print("Invalid")
+       
+    # else:
+    #     print("Invalid")
+
+else:
+    print("Invalid Password")

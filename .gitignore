@@ -1,1 +1,4 @@
 encrypt.py
+password.py
+#to ignore .env file
+.env
